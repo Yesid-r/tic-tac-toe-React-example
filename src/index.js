@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import swal from 'sweetalert'
 
 function Square(props) {
   return (
@@ -102,6 +103,14 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = "Winner: " + winner;
+      swal({
+        title: "Winner is:",
+        text: winner,
+        icon: 'success',
+        button: "Ok",
+        timer: 3000
+
+      } )
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
